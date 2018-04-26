@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,13 +19,13 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Information about an entity that is affected by a Health event.</p>
 newtype AffectedEntity = AffectedEntity 
-  { "entityArn" :: NullOrUndefined (EntityArn')
-  , "eventArn" :: NullOrUndefined (EventArn')
-  , "entityValue" :: NullOrUndefined (EntityValue')
-  , "awsAccountId" :: NullOrUndefined (AccountId')
-  , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "statusCode" :: NullOrUndefined (EntityStatusCode')
-  , "tags" :: NullOrUndefined (TagSet')
+  { "entityArn" :: Maybe (EntityArn')
+  , "eventArn" :: Maybe (EventArn')
+  , "entityValue" :: Maybe (EntityValue')
+  , "awsAccountId" :: Maybe (AccountId')
+  , "lastUpdatedTime" :: Maybe (Types.Timestamp)
+  , "statusCode" :: Maybe (EntityStatusCode')
+  , "tags" :: Maybe (TagSet')
   }
 derive instance newtypeAffectedEntity :: Newtype AffectedEntity _
 derive instance repGenericAffectedEntity :: Generic AffectedEntity _
@@ -36,19 +35,19 @@ instance encodeAffectedEntity :: Encode AffectedEntity where encode = genericEnc
 
 -- | Constructs AffectedEntity from required parameters
 newAffectedEntity :: AffectedEntity
-newAffectedEntity  = AffectedEntity { "awsAccountId": (NullOrUndefined Nothing), "entityArn": (NullOrUndefined Nothing), "entityValue": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing), "lastUpdatedTime": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newAffectedEntity  = AffectedEntity { "awsAccountId": Nothing, "entityArn": Nothing, "entityValue": Nothing, "eventArn": Nothing, "lastUpdatedTime": Nothing, "statusCode": Nothing, "tags": Nothing }
 
 -- | Constructs AffectedEntity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAffectedEntity' :: ( { "entityArn" :: NullOrUndefined (EntityArn') , "eventArn" :: NullOrUndefined (EventArn') , "entityValue" :: NullOrUndefined (EntityValue') , "awsAccountId" :: NullOrUndefined (AccountId') , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) , "statusCode" :: NullOrUndefined (EntityStatusCode') , "tags" :: NullOrUndefined (TagSet') } -> {"entityArn" :: NullOrUndefined (EntityArn') , "eventArn" :: NullOrUndefined (EventArn') , "entityValue" :: NullOrUndefined (EntityValue') , "awsAccountId" :: NullOrUndefined (AccountId') , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) , "statusCode" :: NullOrUndefined (EntityStatusCode') , "tags" :: NullOrUndefined (TagSet') } ) -> AffectedEntity
-newAffectedEntity'  customize = (AffectedEntity <<< customize) { "awsAccountId": (NullOrUndefined Nothing), "entityArn": (NullOrUndefined Nothing), "entityValue": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing), "lastUpdatedTime": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newAffectedEntity' :: ( { "entityArn" :: Maybe (EntityArn') , "eventArn" :: Maybe (EventArn') , "entityValue" :: Maybe (EntityValue') , "awsAccountId" :: Maybe (AccountId') , "lastUpdatedTime" :: Maybe (Types.Timestamp) , "statusCode" :: Maybe (EntityStatusCode') , "tags" :: Maybe (TagSet') } -> {"entityArn" :: Maybe (EntityArn') , "eventArn" :: Maybe (EventArn') , "entityValue" :: Maybe (EntityValue') , "awsAccountId" :: Maybe (AccountId') , "lastUpdatedTime" :: Maybe (Types.Timestamp) , "statusCode" :: Maybe (EntityStatusCode') , "tags" :: Maybe (TagSet') } ) -> AffectedEntity
+newAffectedEntity'  customize = (AffectedEntity <<< customize) { "awsAccountId": Nothing, "entityArn": Nothing, "entityValue": Nothing, "eventArn": Nothing, "lastUpdatedTime": Nothing, "statusCode": Nothing, "tags": Nothing }
 
 
 
 -- | <p>A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.</p>
 newtype DateTimeRange = DateTimeRange 
-  { "from" :: NullOrUndefined (Types.Timestamp)
-  , "to" :: NullOrUndefined (Types.Timestamp)
+  { "from" :: Maybe (Types.Timestamp)
+  , "to" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeDateTimeRange :: Newtype DateTimeRange _
 derive instance repGenericDateTimeRange :: Generic DateTimeRange _
@@ -58,20 +57,20 @@ instance encodeDateTimeRange :: Encode DateTimeRange where encode = genericEncod
 
 -- | Constructs DateTimeRange from required parameters
 newDateTimeRange :: DateTimeRange
-newDateTimeRange  = DateTimeRange { "from": (NullOrUndefined Nothing), "to": (NullOrUndefined Nothing) }
+newDateTimeRange  = DateTimeRange { "from": Nothing, "to": Nothing }
 
 -- | Constructs DateTimeRange's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDateTimeRange' :: ( { "from" :: NullOrUndefined (Types.Timestamp) , "to" :: NullOrUndefined (Types.Timestamp) } -> {"from" :: NullOrUndefined (Types.Timestamp) , "to" :: NullOrUndefined (Types.Timestamp) } ) -> DateTimeRange
-newDateTimeRange'  customize = (DateTimeRange <<< customize) { "from": (NullOrUndefined Nothing), "to": (NullOrUndefined Nothing) }
+newDateTimeRange' :: ( { "from" :: Maybe (Types.Timestamp) , "to" :: Maybe (Types.Timestamp) } -> {"from" :: Maybe (Types.Timestamp) , "to" :: Maybe (Types.Timestamp) } ) -> DateTimeRange
+newDateTimeRange'  customize = (DateTimeRange <<< customize) { "from": Nothing, "to": Nothing }
 
 
 
 newtype DescribeAffectedEntitiesRequest = DescribeAffectedEntitiesRequest 
   { "filter" :: (EntityFilter)
-  , "locale" :: NullOrUndefined (Locale')
-  , "nextToken" :: NullOrUndefined (NextToken')
-  , "maxResults" :: NullOrUndefined (MaxResults')
+  , "locale" :: Maybe (Locale')
+  , "nextToken" :: Maybe (NextToken')
+  , "maxResults" :: Maybe (MaxResults')
   }
 derive instance newtypeDescribeAffectedEntitiesRequest :: Newtype DescribeAffectedEntitiesRequest _
 derive instance repGenericDescribeAffectedEntitiesRequest :: Generic DescribeAffectedEntitiesRequest _
@@ -81,18 +80,18 @@ instance encodeDescribeAffectedEntitiesRequest :: Encode DescribeAffectedEntitie
 
 -- | Constructs DescribeAffectedEntitiesRequest from required parameters
 newDescribeAffectedEntitiesRequest :: EntityFilter -> DescribeAffectedEntitiesRequest
-newDescribeAffectedEntitiesRequest _filter = DescribeAffectedEntitiesRequest { "filter": _filter, "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAffectedEntitiesRequest _filter = DescribeAffectedEntitiesRequest { "filter": _filter, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeAffectedEntitiesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAffectedEntitiesRequest' :: EntityFilter -> ( { "filter" :: (EntityFilter) , "locale" :: NullOrUndefined (Locale') , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') } -> {"filter" :: (EntityFilter) , "locale" :: NullOrUndefined (Locale') , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') } ) -> DescribeAffectedEntitiesRequest
-newDescribeAffectedEntitiesRequest' _filter customize = (DescribeAffectedEntitiesRequest <<< customize) { "filter": _filter, "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAffectedEntitiesRequest' :: EntityFilter -> ( { "filter" :: (EntityFilter) , "locale" :: Maybe (Locale') , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') } -> {"filter" :: (EntityFilter) , "locale" :: Maybe (Locale') , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') } ) -> DescribeAffectedEntitiesRequest
+newDescribeAffectedEntitiesRequest' _filter customize = (DescribeAffectedEntitiesRequest <<< customize) { "filter": _filter, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse 
-  { "entities" :: NullOrUndefined (EntityList)
-  , "nextToken" :: NullOrUndefined (NextToken')
+  { "entities" :: Maybe (EntityList)
+  , "nextToken" :: Maybe (NextToken')
   }
 derive instance newtypeDescribeAffectedEntitiesResponse :: Newtype DescribeAffectedEntitiesResponse _
 derive instance repGenericDescribeAffectedEntitiesResponse :: Generic DescribeAffectedEntitiesResponse _
@@ -102,17 +101,17 @@ instance encodeDescribeAffectedEntitiesResponse :: Encode DescribeAffectedEntiti
 
 -- | Constructs DescribeAffectedEntitiesResponse from required parameters
 newDescribeAffectedEntitiesResponse :: DescribeAffectedEntitiesResponse
-newDescribeAffectedEntitiesResponse  = DescribeAffectedEntitiesResponse { "entities": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAffectedEntitiesResponse  = DescribeAffectedEntitiesResponse { "entities": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeAffectedEntitiesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAffectedEntitiesResponse' :: ( { "entities" :: NullOrUndefined (EntityList) , "nextToken" :: NullOrUndefined (NextToken') } -> {"entities" :: NullOrUndefined (EntityList) , "nextToken" :: NullOrUndefined (NextToken') } ) -> DescribeAffectedEntitiesResponse
-newDescribeAffectedEntitiesResponse'  customize = (DescribeAffectedEntitiesResponse <<< customize) { "entities": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeAffectedEntitiesResponse' :: ( { "entities" :: Maybe (EntityList) , "nextToken" :: Maybe (NextToken') } -> {"entities" :: Maybe (EntityList) , "nextToken" :: Maybe (NextToken') } ) -> DescribeAffectedEntitiesResponse
+newDescribeAffectedEntitiesResponse'  customize = (DescribeAffectedEntitiesResponse <<< customize) { "entities": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeEntityAggregatesRequest = DescribeEntityAggregatesRequest 
-  { "eventArns" :: NullOrUndefined (EventArnsList)
+  { "eventArns" :: Maybe (EventArnsList)
   }
 derive instance newtypeDescribeEntityAggregatesRequest :: Newtype DescribeEntityAggregatesRequest _
 derive instance repGenericDescribeEntityAggregatesRequest :: Generic DescribeEntityAggregatesRequest _
@@ -122,17 +121,17 @@ instance encodeDescribeEntityAggregatesRequest :: Encode DescribeEntityAggregate
 
 -- | Constructs DescribeEntityAggregatesRequest from required parameters
 newDescribeEntityAggregatesRequest :: DescribeEntityAggregatesRequest
-newDescribeEntityAggregatesRequest  = DescribeEntityAggregatesRequest { "eventArns": (NullOrUndefined Nothing) }
+newDescribeEntityAggregatesRequest  = DescribeEntityAggregatesRequest { "eventArns": Nothing }
 
 -- | Constructs DescribeEntityAggregatesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEntityAggregatesRequest' :: ( { "eventArns" :: NullOrUndefined (EventArnsList) } -> {"eventArns" :: NullOrUndefined (EventArnsList) } ) -> DescribeEntityAggregatesRequest
-newDescribeEntityAggregatesRequest'  customize = (DescribeEntityAggregatesRequest <<< customize) { "eventArns": (NullOrUndefined Nothing) }
+newDescribeEntityAggregatesRequest' :: ( { "eventArns" :: Maybe (EventArnsList) } -> {"eventArns" :: Maybe (EventArnsList) } ) -> DescribeEntityAggregatesRequest
+newDescribeEntityAggregatesRequest'  customize = (DescribeEntityAggregatesRequest <<< customize) { "eventArns": Nothing }
 
 
 
 newtype DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse 
-  { "entityAggregates" :: NullOrUndefined (EntityAggregateList)
+  { "entityAggregates" :: Maybe (EntityAggregateList)
   }
 derive instance newtypeDescribeEntityAggregatesResponse :: Newtype DescribeEntityAggregatesResponse _
 derive instance repGenericDescribeEntityAggregatesResponse :: Generic DescribeEntityAggregatesResponse _
@@ -142,20 +141,20 @@ instance encodeDescribeEntityAggregatesResponse :: Encode DescribeEntityAggregat
 
 -- | Constructs DescribeEntityAggregatesResponse from required parameters
 newDescribeEntityAggregatesResponse :: DescribeEntityAggregatesResponse
-newDescribeEntityAggregatesResponse  = DescribeEntityAggregatesResponse { "entityAggregates": (NullOrUndefined Nothing) }
+newDescribeEntityAggregatesResponse  = DescribeEntityAggregatesResponse { "entityAggregates": Nothing }
 
 -- | Constructs DescribeEntityAggregatesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEntityAggregatesResponse' :: ( { "entityAggregates" :: NullOrUndefined (EntityAggregateList) } -> {"entityAggregates" :: NullOrUndefined (EntityAggregateList) } ) -> DescribeEntityAggregatesResponse
-newDescribeEntityAggregatesResponse'  customize = (DescribeEntityAggregatesResponse <<< customize) { "entityAggregates": (NullOrUndefined Nothing) }
+newDescribeEntityAggregatesResponse' :: ( { "entityAggregates" :: Maybe (EntityAggregateList) } -> {"entityAggregates" :: Maybe (EntityAggregateList) } ) -> DescribeEntityAggregatesResponse
+newDescribeEntityAggregatesResponse'  customize = (DescribeEntityAggregatesResponse <<< customize) { "entityAggregates": Nothing }
 
 
 
 newtype DescribeEventAggregatesRequest = DescribeEventAggregatesRequest 
-  { "filter" :: NullOrUndefined (EventFilter)
+  { "filter" :: Maybe (EventFilter)
   , "aggregateField" :: (EventAggregateField')
-  , "maxResults" :: NullOrUndefined (MaxResults')
-  , "nextToken" :: NullOrUndefined (NextToken')
+  , "maxResults" :: Maybe (MaxResults')
+  , "nextToken" :: Maybe (NextToken')
   }
 derive instance newtypeDescribeEventAggregatesRequest :: Newtype DescribeEventAggregatesRequest _
 derive instance repGenericDescribeEventAggregatesRequest :: Generic DescribeEventAggregatesRequest _
@@ -165,18 +164,18 @@ instance encodeDescribeEventAggregatesRequest :: Encode DescribeEventAggregatesR
 
 -- | Constructs DescribeEventAggregatesRequest from required parameters
 newDescribeEventAggregatesRequest :: EventAggregateField' -> DescribeEventAggregatesRequest
-newDescribeEventAggregatesRequest _aggregateField = DescribeEventAggregatesRequest { "aggregateField": _aggregateField, "filter": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventAggregatesRequest _aggregateField = DescribeEventAggregatesRequest { "aggregateField": _aggregateField, "filter": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventAggregatesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventAggregatesRequest' :: EventAggregateField' -> ( { "filter" :: NullOrUndefined (EventFilter) , "aggregateField" :: (EventAggregateField') , "maxResults" :: NullOrUndefined (MaxResults') , "nextToken" :: NullOrUndefined (NextToken') } -> {"filter" :: NullOrUndefined (EventFilter) , "aggregateField" :: (EventAggregateField') , "maxResults" :: NullOrUndefined (MaxResults') , "nextToken" :: NullOrUndefined (NextToken') } ) -> DescribeEventAggregatesRequest
-newDescribeEventAggregatesRequest' _aggregateField customize = (DescribeEventAggregatesRequest <<< customize) { "aggregateField": _aggregateField, "filter": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventAggregatesRequest' :: EventAggregateField' -> ( { "filter" :: Maybe (EventFilter) , "aggregateField" :: (EventAggregateField') , "maxResults" :: Maybe (MaxResults') , "nextToken" :: Maybe (NextToken') } -> {"filter" :: Maybe (EventFilter) , "aggregateField" :: (EventAggregateField') , "maxResults" :: Maybe (MaxResults') , "nextToken" :: Maybe (NextToken') } ) -> DescribeEventAggregatesRequest
+newDescribeEventAggregatesRequest' _aggregateField customize = (DescribeEventAggregatesRequest <<< customize) { "aggregateField": _aggregateField, "filter": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeEventAggregatesResponse = DescribeEventAggregatesResponse 
-  { "eventAggregates" :: NullOrUndefined (EventAggregateList)
-  , "nextToken" :: NullOrUndefined (NextToken')
+  { "eventAggregates" :: Maybe (EventAggregateList)
+  , "nextToken" :: Maybe (NextToken')
   }
 derive instance newtypeDescribeEventAggregatesResponse :: Newtype DescribeEventAggregatesResponse _
 derive instance repGenericDescribeEventAggregatesResponse :: Generic DescribeEventAggregatesResponse _
@@ -186,12 +185,12 @@ instance encodeDescribeEventAggregatesResponse :: Encode DescribeEventAggregates
 
 -- | Constructs DescribeEventAggregatesResponse from required parameters
 newDescribeEventAggregatesResponse :: DescribeEventAggregatesResponse
-newDescribeEventAggregatesResponse  = DescribeEventAggregatesResponse { "eventAggregates": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventAggregatesResponse  = DescribeEventAggregatesResponse { "eventAggregates": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventAggregatesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventAggregatesResponse' :: ( { "eventAggregates" :: NullOrUndefined (EventAggregateList) , "nextToken" :: NullOrUndefined (NextToken') } -> {"eventAggregates" :: NullOrUndefined (EventAggregateList) , "nextToken" :: NullOrUndefined (NextToken') } ) -> DescribeEventAggregatesResponse
-newDescribeEventAggregatesResponse'  customize = (DescribeEventAggregatesResponse <<< customize) { "eventAggregates": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventAggregatesResponse' :: ( { "eventAggregates" :: Maybe (EventAggregateList) , "nextToken" :: Maybe (NextToken') } -> {"eventAggregates" :: Maybe (EventAggregateList) , "nextToken" :: Maybe (NextToken') } ) -> DescribeEventAggregatesResponse
+newDescribeEventAggregatesResponse'  customize = (DescribeEventAggregatesResponse <<< customize) { "eventAggregates": Nothing, "nextToken": Nothing }
 
 
 
@@ -206,7 +205,7 @@ instance encodeDescribeEventDetailsFailedSet :: Encode DescribeEventDetailsFaile
 
 newtype DescribeEventDetailsRequest = DescribeEventDetailsRequest 
   { "eventArns" :: (EventArnList')
-  , "locale" :: NullOrUndefined (Locale')
+  , "locale" :: Maybe (Locale')
   }
 derive instance newtypeDescribeEventDetailsRequest :: Newtype DescribeEventDetailsRequest _
 derive instance repGenericDescribeEventDetailsRequest :: Generic DescribeEventDetailsRequest _
@@ -216,18 +215,18 @@ instance encodeDescribeEventDetailsRequest :: Encode DescribeEventDetailsRequest
 
 -- | Constructs DescribeEventDetailsRequest from required parameters
 newDescribeEventDetailsRequest :: EventArnList' -> DescribeEventDetailsRequest
-newDescribeEventDetailsRequest _eventArns = DescribeEventDetailsRequest { "eventArns": _eventArns, "locale": (NullOrUndefined Nothing) }
+newDescribeEventDetailsRequest _eventArns = DescribeEventDetailsRequest { "eventArns": _eventArns, "locale": Nothing }
 
 -- | Constructs DescribeEventDetailsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventDetailsRequest' :: EventArnList' -> ( { "eventArns" :: (EventArnList') , "locale" :: NullOrUndefined (Locale') } -> {"eventArns" :: (EventArnList') , "locale" :: NullOrUndefined (Locale') } ) -> DescribeEventDetailsRequest
-newDescribeEventDetailsRequest' _eventArns customize = (DescribeEventDetailsRequest <<< customize) { "eventArns": _eventArns, "locale": (NullOrUndefined Nothing) }
+newDescribeEventDetailsRequest' :: EventArnList' -> ( { "eventArns" :: (EventArnList') , "locale" :: Maybe (Locale') } -> {"eventArns" :: (EventArnList') , "locale" :: Maybe (Locale') } ) -> DescribeEventDetailsRequest
+newDescribeEventDetailsRequest' _eventArns customize = (DescribeEventDetailsRequest <<< customize) { "eventArns": _eventArns, "locale": Nothing }
 
 
 
 newtype DescribeEventDetailsResponse = DescribeEventDetailsResponse 
-  { "successfulSet" :: NullOrUndefined (DescribeEventDetailsSuccessfulSet)
-  , "failedSet" :: NullOrUndefined (DescribeEventDetailsFailedSet)
+  { "successfulSet" :: Maybe (DescribeEventDetailsSuccessfulSet)
+  , "failedSet" :: Maybe (DescribeEventDetailsFailedSet)
   }
 derive instance newtypeDescribeEventDetailsResponse :: Newtype DescribeEventDetailsResponse _
 derive instance repGenericDescribeEventDetailsResponse :: Generic DescribeEventDetailsResponse _
@@ -237,12 +236,12 @@ instance encodeDescribeEventDetailsResponse :: Encode DescribeEventDetailsRespon
 
 -- | Constructs DescribeEventDetailsResponse from required parameters
 newDescribeEventDetailsResponse :: DescribeEventDetailsResponse
-newDescribeEventDetailsResponse  = DescribeEventDetailsResponse { "failedSet": (NullOrUndefined Nothing), "successfulSet": (NullOrUndefined Nothing) }
+newDescribeEventDetailsResponse  = DescribeEventDetailsResponse { "failedSet": Nothing, "successfulSet": Nothing }
 
 -- | Constructs DescribeEventDetailsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventDetailsResponse' :: ( { "successfulSet" :: NullOrUndefined (DescribeEventDetailsSuccessfulSet) , "failedSet" :: NullOrUndefined (DescribeEventDetailsFailedSet) } -> {"successfulSet" :: NullOrUndefined (DescribeEventDetailsSuccessfulSet) , "failedSet" :: NullOrUndefined (DescribeEventDetailsFailedSet) } ) -> DescribeEventDetailsResponse
-newDescribeEventDetailsResponse'  customize = (DescribeEventDetailsResponse <<< customize) { "failedSet": (NullOrUndefined Nothing), "successfulSet": (NullOrUndefined Nothing) }
+newDescribeEventDetailsResponse' :: ( { "successfulSet" :: Maybe (DescribeEventDetailsSuccessfulSet) , "failedSet" :: Maybe (DescribeEventDetailsFailedSet) } -> {"successfulSet" :: Maybe (DescribeEventDetailsSuccessfulSet) , "failedSet" :: Maybe (DescribeEventDetailsFailedSet) } ) -> DescribeEventDetailsResponse
+newDescribeEventDetailsResponse'  customize = (DescribeEventDetailsResponse <<< customize) { "failedSet": Nothing, "successfulSet": Nothing }
 
 
 
@@ -256,10 +255,10 @@ instance encodeDescribeEventDetailsSuccessfulSet :: Encode DescribeEventDetailsS
 
 
 newtype DescribeEventTypesRequest = DescribeEventTypesRequest 
-  { "filter" :: NullOrUndefined (EventTypeFilter)
-  , "locale" :: NullOrUndefined (Locale')
-  , "nextToken" :: NullOrUndefined (NextToken')
-  , "maxResults" :: NullOrUndefined (MaxResults')
+  { "filter" :: Maybe (EventTypeFilter)
+  , "locale" :: Maybe (Locale')
+  , "nextToken" :: Maybe (NextToken')
+  , "maxResults" :: Maybe (MaxResults')
   }
 derive instance newtypeDescribeEventTypesRequest :: Newtype DescribeEventTypesRequest _
 derive instance repGenericDescribeEventTypesRequest :: Generic DescribeEventTypesRequest _
@@ -269,18 +268,18 @@ instance encodeDescribeEventTypesRequest :: Encode DescribeEventTypesRequest whe
 
 -- | Constructs DescribeEventTypesRequest from required parameters
 newDescribeEventTypesRequest :: DescribeEventTypesRequest
-newDescribeEventTypesRequest  = DescribeEventTypesRequest { "filter": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventTypesRequest  = DescribeEventTypesRequest { "filter": Nothing, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventTypesRequest' :: ( { "filter" :: NullOrUndefined (EventTypeFilter) , "locale" :: NullOrUndefined (Locale') , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') } -> {"filter" :: NullOrUndefined (EventTypeFilter) , "locale" :: NullOrUndefined (Locale') , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') } ) -> DescribeEventTypesRequest
-newDescribeEventTypesRequest'  customize = (DescribeEventTypesRequest <<< customize) { "filter": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventTypesRequest' :: ( { "filter" :: Maybe (EventTypeFilter) , "locale" :: Maybe (Locale') , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') } -> {"filter" :: Maybe (EventTypeFilter) , "locale" :: Maybe (Locale') , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') } ) -> DescribeEventTypesRequest
+newDescribeEventTypesRequest'  customize = (DescribeEventTypesRequest <<< customize) { "filter": Nothing, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeEventTypesResponse = DescribeEventTypesResponse 
-  { "eventTypes" :: NullOrUndefined (EventTypeList)
-  , "nextToken" :: NullOrUndefined (NextToken')
+  { "eventTypes" :: Maybe (EventTypeList)
+  , "nextToken" :: Maybe (NextToken')
   }
 derive instance newtypeDescribeEventTypesResponse :: Newtype DescribeEventTypesResponse _
 derive instance repGenericDescribeEventTypesResponse :: Generic DescribeEventTypesResponse _
@@ -290,20 +289,20 @@ instance encodeDescribeEventTypesResponse :: Encode DescribeEventTypesResponse w
 
 -- | Constructs DescribeEventTypesResponse from required parameters
 newDescribeEventTypesResponse :: DescribeEventTypesResponse
-newDescribeEventTypesResponse  = DescribeEventTypesResponse { "eventTypes": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventTypesResponse  = DescribeEventTypesResponse { "eventTypes": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventTypesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventTypesResponse' :: ( { "eventTypes" :: NullOrUndefined (EventTypeList) , "nextToken" :: NullOrUndefined (NextToken') } -> {"eventTypes" :: NullOrUndefined (EventTypeList) , "nextToken" :: NullOrUndefined (NextToken') } ) -> DescribeEventTypesResponse
-newDescribeEventTypesResponse'  customize = (DescribeEventTypesResponse <<< customize) { "eventTypes": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventTypesResponse' :: ( { "eventTypes" :: Maybe (EventTypeList) , "nextToken" :: Maybe (NextToken') } -> {"eventTypes" :: Maybe (EventTypeList) , "nextToken" :: Maybe (NextToken') } ) -> DescribeEventTypesResponse
+newDescribeEventTypesResponse'  customize = (DescribeEventTypesResponse <<< customize) { "eventTypes": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeEventsRequest = DescribeEventsRequest 
-  { "filter" :: NullOrUndefined (EventFilter)
-  , "nextToken" :: NullOrUndefined (NextToken')
-  , "maxResults" :: NullOrUndefined (MaxResults')
-  , "locale" :: NullOrUndefined (Locale')
+  { "filter" :: Maybe (EventFilter)
+  , "nextToken" :: Maybe (NextToken')
+  , "maxResults" :: Maybe (MaxResults')
+  , "locale" :: Maybe (Locale')
   }
 derive instance newtypeDescribeEventsRequest :: Newtype DescribeEventsRequest _
 derive instance repGenericDescribeEventsRequest :: Generic DescribeEventsRequest _
@@ -313,18 +312,18 @@ instance encodeDescribeEventsRequest :: Encode DescribeEventsRequest where encod
 
 -- | Constructs DescribeEventsRequest from required parameters
 newDescribeEventsRequest :: DescribeEventsRequest
-newDescribeEventsRequest  = DescribeEventsRequest { "filter": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventsRequest  = DescribeEventsRequest { "filter": Nothing, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventsRequest' :: ( { "filter" :: NullOrUndefined (EventFilter) , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') , "locale" :: NullOrUndefined (Locale') } -> {"filter" :: NullOrUndefined (EventFilter) , "nextToken" :: NullOrUndefined (NextToken') , "maxResults" :: NullOrUndefined (MaxResults') , "locale" :: NullOrUndefined (Locale') } ) -> DescribeEventsRequest
-newDescribeEventsRequest'  customize = (DescribeEventsRequest <<< customize) { "filter": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventsRequest' :: ( { "filter" :: Maybe (EventFilter) , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') , "locale" :: Maybe (Locale') } -> {"filter" :: Maybe (EventFilter) , "nextToken" :: Maybe (NextToken') , "maxResults" :: Maybe (MaxResults') , "locale" :: Maybe (Locale') } ) -> DescribeEventsRequest
+newDescribeEventsRequest'  customize = (DescribeEventsRequest <<< customize) { "filter": Nothing, "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype DescribeEventsResponse = DescribeEventsResponse 
-  { "events" :: NullOrUndefined (EventList)
-  , "nextToken" :: NullOrUndefined (NextToken')
+  { "events" :: Maybe (EventList)
+  , "nextToken" :: Maybe (NextToken')
   }
 derive instance newtypeDescribeEventsResponse :: Newtype DescribeEventsResponse _
 derive instance repGenericDescribeEventsResponse :: Generic DescribeEventsResponse _
@@ -334,19 +333,19 @@ instance encodeDescribeEventsResponse :: Encode DescribeEventsResponse where enc
 
 -- | Constructs DescribeEventsResponse from required parameters
 newDescribeEventsResponse :: DescribeEventsResponse
-newDescribeEventsResponse  = DescribeEventsResponse { "events": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventsResponse  = DescribeEventsResponse { "events": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventsResponse' :: ( { "events" :: NullOrUndefined (EventList) , "nextToken" :: NullOrUndefined (NextToken') } -> {"events" :: NullOrUndefined (EventList) , "nextToken" :: NullOrUndefined (NextToken') } ) -> DescribeEventsResponse
-newDescribeEventsResponse'  customize = (DescribeEventsResponse <<< customize) { "events": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEventsResponse' :: ( { "events" :: Maybe (EventList) , "nextToken" :: Maybe (NextToken') } -> {"events" :: Maybe (EventList) , "nextToken" :: Maybe (NextToken') } ) -> DescribeEventsResponse
+newDescribeEventsResponse'  customize = (DescribeEventsResponse <<< customize) { "events": Nothing, "nextToken": Nothing }
 
 
 
 -- | <p>The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.</p>
 newtype EntityAggregate = EntityAggregate 
-  { "eventArn" :: NullOrUndefined (EventArn')
-  , "count" :: NullOrUndefined (Count')
+  { "eventArn" :: Maybe (EventArn')
+  , "count" :: Maybe (Count')
   }
 derive instance newtypeEntityAggregate :: Newtype EntityAggregate _
 derive instance repGenericEntityAggregate :: Generic EntityAggregate _
@@ -356,12 +355,12 @@ instance encodeEntityAggregate :: Encode EntityAggregate where encode = genericE
 
 -- | Constructs EntityAggregate from required parameters
 newEntityAggregate :: EntityAggregate
-newEntityAggregate  = EntityAggregate { "count": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing) }
+newEntityAggregate  = EntityAggregate { "count": Nothing, "eventArn": Nothing }
 
 -- | Constructs EntityAggregate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEntityAggregate' :: ( { "eventArn" :: NullOrUndefined (EventArn') , "count" :: NullOrUndefined (Count') } -> {"eventArn" :: NullOrUndefined (EventArn') , "count" :: NullOrUndefined (Count') } ) -> EntityAggregate
-newEntityAggregate'  customize = (EntityAggregate <<< customize) { "count": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing) }
+newEntityAggregate' :: ( { "eventArn" :: Maybe (EventArn') , "count" :: Maybe (Count') } -> {"eventArn" :: Maybe (EventArn') , "count" :: Maybe (Count') } ) -> EntityAggregate
+newEntityAggregate'  customize = (EntityAggregate <<< customize) { "count": Nothing, "eventArn": Nothing }
 
 
 
@@ -377,11 +376,11 @@ instance encodeEntityAggregateList :: Encode EntityAggregateList where encode = 
 -- | <p>The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.</p>
 newtype EntityFilter = EntityFilter 
   { "eventArns" :: (EventArnList')
-  , "entityArns" :: NullOrUndefined (EntityArnList')
-  , "entityValues" :: NullOrUndefined (EntityValueList')
-  , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList')
-  , "tags" :: NullOrUndefined (TagFilter')
-  , "statusCodes" :: NullOrUndefined (EntityStatusCodeList')
+  , "entityArns" :: Maybe (EntityArnList')
+  , "entityValues" :: Maybe (EntityValueList')
+  , "lastUpdatedTimes" :: Maybe (DateTimeRangeList')
+  , "tags" :: Maybe (TagFilter')
+  , "statusCodes" :: Maybe (EntityStatusCodeList')
   }
 derive instance newtypeEntityFilter :: Newtype EntityFilter _
 derive instance repGenericEntityFilter :: Generic EntityFilter _
@@ -391,12 +390,12 @@ instance encodeEntityFilter :: Encode EntityFilter where encode = genericEncode 
 
 -- | Constructs EntityFilter from required parameters
 newEntityFilter :: EventArnList' -> EntityFilter
-newEntityFilter _eventArns = EntityFilter { "eventArns": _eventArns, "entityArns": (NullOrUndefined Nothing), "entityValues": (NullOrUndefined Nothing), "lastUpdatedTimes": (NullOrUndefined Nothing), "statusCodes": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newEntityFilter _eventArns = EntityFilter { "eventArns": _eventArns, "entityArns": Nothing, "entityValues": Nothing, "lastUpdatedTimes": Nothing, "statusCodes": Nothing, "tags": Nothing }
 
 -- | Constructs EntityFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEntityFilter' :: EventArnList' -> ( { "eventArns" :: (EventArnList') , "entityArns" :: NullOrUndefined (EntityArnList') , "entityValues" :: NullOrUndefined (EntityValueList') , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList') , "tags" :: NullOrUndefined (TagFilter') , "statusCodes" :: NullOrUndefined (EntityStatusCodeList') } -> {"eventArns" :: (EventArnList') , "entityArns" :: NullOrUndefined (EntityArnList') , "entityValues" :: NullOrUndefined (EntityValueList') , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList') , "tags" :: NullOrUndefined (TagFilter') , "statusCodes" :: NullOrUndefined (EntityStatusCodeList') } ) -> EntityFilter
-newEntityFilter' _eventArns customize = (EntityFilter <<< customize) { "eventArns": _eventArns, "entityArns": (NullOrUndefined Nothing), "entityValues": (NullOrUndefined Nothing), "lastUpdatedTimes": (NullOrUndefined Nothing), "statusCodes": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newEntityFilter' :: EventArnList' -> ( { "eventArns" :: (EventArnList') , "entityArns" :: Maybe (EntityArnList') , "entityValues" :: Maybe (EntityValueList') , "lastUpdatedTimes" :: Maybe (DateTimeRangeList') , "tags" :: Maybe (TagFilter') , "statusCodes" :: Maybe (EntityStatusCodeList') } -> {"eventArns" :: (EventArnList') , "entityArns" :: Maybe (EntityArnList') , "entityValues" :: Maybe (EntityValueList') , "lastUpdatedTimes" :: Maybe (DateTimeRangeList') , "tags" :: Maybe (TagFilter') , "statusCodes" :: Maybe (EntityStatusCodeList') } ) -> EntityFilter
+newEntityFilter' _eventArns customize = (EntityFilter <<< customize) { "eventArns": _eventArns, "entityArns": Nothing, "entityValues": Nothing, "lastUpdatedTimes": Nothing, "statusCodes": Nothing, "tags": Nothing }
 
 
 
@@ -411,16 +410,16 @@ instance encodeEntityList :: Encode EntityList where encode = genericEncode opti
 
 -- | <p>Summary information about an event, returned by the <a>DescribeEvents</a> operation. The <a>DescribeEventDetails</a> operation also returns this information, as well as the <a>EventDescription</a> and additional event metadata.</p>
 newtype Event = Event 
-  { "arn" :: NullOrUndefined (EventArn')
-  , "service" :: NullOrUndefined (Service')
-  , "eventTypeCode" :: NullOrUndefined (EventTypeCode')
-  , "eventTypeCategory" :: NullOrUndefined (EventTypeCategory')
-  , "region" :: NullOrUndefined (Region')
-  , "availabilityZone" :: NullOrUndefined (AvailabilityZone')
-  , "startTime" :: NullOrUndefined (Types.Timestamp)
-  , "endTime" :: NullOrUndefined (Types.Timestamp)
-  , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp)
-  , "statusCode" :: NullOrUndefined (EventStatusCode')
+  { "arn" :: Maybe (EventArn')
+  , "service" :: Maybe (Service')
+  , "eventTypeCode" :: Maybe (EventTypeCode')
+  , "eventTypeCategory" :: Maybe (EventTypeCategory')
+  , "region" :: Maybe (Region')
+  , "availabilityZone" :: Maybe (AvailabilityZone')
+  , "startTime" :: Maybe (Types.Timestamp)
+  , "endTime" :: Maybe (Types.Timestamp)
+  , "lastUpdatedTime" :: Maybe (Types.Timestamp)
+  , "statusCode" :: Maybe (EventStatusCode')
   }
 derive instance newtypeEvent :: Newtype Event _
 derive instance repGenericEvent :: Generic Event _
@@ -430,19 +429,19 @@ instance encodeEvent :: Encode Event where encode = genericEncode options
 
 -- | Constructs Event from required parameters
 newEvent :: Event
-newEvent  = Event { "arn": (NullOrUndefined Nothing), "availabilityZone": (NullOrUndefined Nothing), "endTime": (NullOrUndefined Nothing), "eventTypeCategory": (NullOrUndefined Nothing), "eventTypeCode": (NullOrUndefined Nothing), "lastUpdatedTime": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing), "service": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newEvent  = Event { "arn": Nothing, "availabilityZone": Nothing, "endTime": Nothing, "eventTypeCategory": Nothing, "eventTypeCode": Nothing, "lastUpdatedTime": Nothing, "region": Nothing, "service": Nothing, "startTime": Nothing, "statusCode": Nothing }
 
 -- | Constructs Event's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEvent' :: ( { "arn" :: NullOrUndefined (EventArn') , "service" :: NullOrUndefined (Service') , "eventTypeCode" :: NullOrUndefined (EventTypeCode') , "eventTypeCategory" :: NullOrUndefined (EventTypeCategory') , "region" :: NullOrUndefined (Region') , "availabilityZone" :: NullOrUndefined (AvailabilityZone') , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) , "statusCode" :: NullOrUndefined (EventStatusCode') } -> {"arn" :: NullOrUndefined (EventArn') , "service" :: NullOrUndefined (Service') , "eventTypeCode" :: NullOrUndefined (EventTypeCode') , "eventTypeCategory" :: NullOrUndefined (EventTypeCategory') , "region" :: NullOrUndefined (Region') , "availabilityZone" :: NullOrUndefined (AvailabilityZone') , "startTime" :: NullOrUndefined (Types.Timestamp) , "endTime" :: NullOrUndefined (Types.Timestamp) , "lastUpdatedTime" :: NullOrUndefined (Types.Timestamp) , "statusCode" :: NullOrUndefined (EventStatusCode') } ) -> Event
-newEvent'  customize = (Event <<< customize) { "arn": (NullOrUndefined Nothing), "availabilityZone": (NullOrUndefined Nothing), "endTime": (NullOrUndefined Nothing), "eventTypeCategory": (NullOrUndefined Nothing), "eventTypeCode": (NullOrUndefined Nothing), "lastUpdatedTime": (NullOrUndefined Nothing), "region": (NullOrUndefined Nothing), "service": (NullOrUndefined Nothing), "startTime": (NullOrUndefined Nothing), "statusCode": (NullOrUndefined Nothing) }
+newEvent' :: ( { "arn" :: Maybe (EventArn') , "service" :: Maybe (Service') , "eventTypeCode" :: Maybe (EventTypeCode') , "eventTypeCategory" :: Maybe (EventTypeCategory') , "region" :: Maybe (Region') , "availabilityZone" :: Maybe (AvailabilityZone') , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "lastUpdatedTime" :: Maybe (Types.Timestamp) , "statusCode" :: Maybe (EventStatusCode') } -> {"arn" :: Maybe (EventArn') , "service" :: Maybe (Service') , "eventTypeCode" :: Maybe (EventTypeCode') , "eventTypeCategory" :: Maybe (EventTypeCategory') , "region" :: Maybe (Region') , "availabilityZone" :: Maybe (AvailabilityZone') , "startTime" :: Maybe (Types.Timestamp) , "endTime" :: Maybe (Types.Timestamp) , "lastUpdatedTime" :: Maybe (Types.Timestamp) , "statusCode" :: Maybe (EventStatusCode') } ) -> Event
+newEvent'  customize = (Event <<< customize) { "arn": Nothing, "availabilityZone": Nothing, "endTime": Nothing, "eventTypeCategory": Nothing, "eventTypeCode": Nothing, "lastUpdatedTime": Nothing, "region": Nothing, "service": Nothing, "startTime": Nothing, "statusCode": Nothing }
 
 
 
 -- | <p>The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.</p>
 newtype EventAggregate = EventAggregate 
-  { "aggregateValue" :: NullOrUndefined (AggregateValue')
-  , "count" :: NullOrUndefined (Count')
+  { "aggregateValue" :: Maybe (AggregateValue')
+  , "count" :: Maybe (Count')
   }
 derive instance newtypeEventAggregate :: Newtype EventAggregate _
 derive instance repGenericEventAggregate :: Generic EventAggregate _
@@ -452,12 +451,12 @@ instance encodeEventAggregate :: Encode EventAggregate where encode = genericEnc
 
 -- | Constructs EventAggregate from required parameters
 newEventAggregate :: EventAggregate
-newEventAggregate  = EventAggregate { "aggregateValue": (NullOrUndefined Nothing), "count": (NullOrUndefined Nothing) }
+newEventAggregate  = EventAggregate { "aggregateValue": Nothing, "count": Nothing }
 
 -- | Constructs EventAggregate's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventAggregate' :: ( { "aggregateValue" :: NullOrUndefined (AggregateValue') , "count" :: NullOrUndefined (Count') } -> {"aggregateValue" :: NullOrUndefined (AggregateValue') , "count" :: NullOrUndefined (Count') } ) -> EventAggregate
-newEventAggregate'  customize = (EventAggregate <<< customize) { "aggregateValue": (NullOrUndefined Nothing), "count": (NullOrUndefined Nothing) }
+newEventAggregate' :: ( { "aggregateValue" :: Maybe (AggregateValue') , "count" :: Maybe (Count') } -> {"aggregateValue" :: Maybe (AggregateValue') , "count" :: Maybe (Count') } ) -> EventAggregate
+newEventAggregate'  customize = (EventAggregate <<< customize) { "aggregateValue": Nothing, "count": Nothing }
 
 
 
@@ -481,7 +480,7 @@ instance encodeEventArnsList :: Encode EventArnsList where encode = genericEncod
 
 -- | <p>The detailed description of the event. Included in the information returned by the <a>DescribeEventDetails</a> operation.</p>
 newtype EventDescription = EventDescription 
-  { "latestDescription" :: NullOrUndefined (EventDescription')
+  { "latestDescription" :: Maybe (EventDescription')
   }
 derive instance newtypeEventDescription :: Newtype EventDescription _
 derive instance repGenericEventDescription :: Generic EventDescription _
@@ -491,20 +490,20 @@ instance encodeEventDescription :: Encode EventDescription where encode = generi
 
 -- | Constructs EventDescription from required parameters
 newEventDescription :: EventDescription
-newEventDescription  = EventDescription { "latestDescription": (NullOrUndefined Nothing) }
+newEventDescription  = EventDescription { "latestDescription": Nothing }
 
 -- | Constructs EventDescription's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventDescription' :: ( { "latestDescription" :: NullOrUndefined (EventDescription') } -> {"latestDescription" :: NullOrUndefined (EventDescription') } ) -> EventDescription
-newEventDescription'  customize = (EventDescription <<< customize) { "latestDescription": (NullOrUndefined Nothing) }
+newEventDescription' :: ( { "latestDescription" :: Maybe (EventDescription') } -> {"latestDescription" :: Maybe (EventDescription') } ) -> EventDescription
+newEventDescription'  customize = (EventDescription <<< customize) { "latestDescription": Nothing }
 
 
 
 -- | <p>Detailed information about an event. A combination of an <a>Event</a> object, an <a>EventDescription</a> object, and additional metadata about the event. Returned by the <a>DescribeEventDetails</a> operation.</p>
 newtype EventDetails = EventDetails 
-  { "event" :: NullOrUndefined (Event)
-  , "eventDescription" :: NullOrUndefined (EventDescription)
-  , "eventMetadata" :: NullOrUndefined (EventMetadata')
+  { "event" :: Maybe (Event)
+  , "eventDescription" :: Maybe (EventDescription)
+  , "eventMetadata" :: Maybe (EventMetadata')
   }
 derive instance newtypeEventDetails :: Newtype EventDetails _
 derive instance repGenericEventDetails :: Generic EventDetails _
@@ -514,20 +513,20 @@ instance encodeEventDetails :: Encode EventDetails where encode = genericEncode 
 
 -- | Constructs EventDetails from required parameters
 newEventDetails :: EventDetails
-newEventDetails  = EventDetails { "event": (NullOrUndefined Nothing), "eventDescription": (NullOrUndefined Nothing), "eventMetadata": (NullOrUndefined Nothing) }
+newEventDetails  = EventDetails { "event": Nothing, "eventDescription": Nothing, "eventMetadata": Nothing }
 
 -- | Constructs EventDetails's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventDetails' :: ( { "event" :: NullOrUndefined (Event) , "eventDescription" :: NullOrUndefined (EventDescription) , "eventMetadata" :: NullOrUndefined (EventMetadata') } -> {"event" :: NullOrUndefined (Event) , "eventDescription" :: NullOrUndefined (EventDescription) , "eventMetadata" :: NullOrUndefined (EventMetadata') } ) -> EventDetails
-newEventDetails'  customize = (EventDetails <<< customize) { "event": (NullOrUndefined Nothing), "eventDescription": (NullOrUndefined Nothing), "eventMetadata": (NullOrUndefined Nothing) }
+newEventDetails' :: ( { "event" :: Maybe (Event) , "eventDescription" :: Maybe (EventDescription) , "eventMetadata" :: Maybe (EventMetadata') } -> {"event" :: Maybe (Event) , "eventDescription" :: Maybe (EventDescription) , "eventMetadata" :: Maybe (EventMetadata') } ) -> EventDetails
+newEventDetails'  customize = (EventDetails <<< customize) { "event": Nothing, "eventDescription": Nothing, "eventMetadata": Nothing }
 
 
 
 -- | <p>Error information returned when a <a>DescribeEventDetails</a> operation cannot find a specified event.</p>
 newtype EventDetailsErrorItem = EventDetailsErrorItem 
-  { "eventArn" :: NullOrUndefined (EventArn')
-  , "errorName" :: NullOrUndefined (String)
-  , "errorMessage" :: NullOrUndefined (String)
+  { "eventArn" :: Maybe (EventArn')
+  , "errorName" :: Maybe (String)
+  , "errorMessage" :: Maybe (String)
   }
 derive instance newtypeEventDetailsErrorItem :: Newtype EventDetailsErrorItem _
 derive instance repGenericEventDetailsErrorItem :: Generic EventDetailsErrorItem _
@@ -537,30 +536,30 @@ instance encodeEventDetailsErrorItem :: Encode EventDetailsErrorItem where encod
 
 -- | Constructs EventDetailsErrorItem from required parameters
 newEventDetailsErrorItem :: EventDetailsErrorItem
-newEventDetailsErrorItem  = EventDetailsErrorItem { "errorMessage": (NullOrUndefined Nothing), "errorName": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing) }
+newEventDetailsErrorItem  = EventDetailsErrorItem { "errorMessage": Nothing, "errorName": Nothing, "eventArn": Nothing }
 
 -- | Constructs EventDetailsErrorItem's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventDetailsErrorItem' :: ( { "eventArn" :: NullOrUndefined (EventArn') , "errorName" :: NullOrUndefined (String) , "errorMessage" :: NullOrUndefined (String) } -> {"eventArn" :: NullOrUndefined (EventArn') , "errorName" :: NullOrUndefined (String) , "errorMessage" :: NullOrUndefined (String) } ) -> EventDetailsErrorItem
-newEventDetailsErrorItem'  customize = (EventDetailsErrorItem <<< customize) { "errorMessage": (NullOrUndefined Nothing), "errorName": (NullOrUndefined Nothing), "eventArn": (NullOrUndefined Nothing) }
+newEventDetailsErrorItem' :: ( { "eventArn" :: Maybe (EventArn') , "errorName" :: Maybe (String) , "errorMessage" :: Maybe (String) } -> {"eventArn" :: Maybe (EventArn') , "errorName" :: Maybe (String) , "errorMessage" :: Maybe (String) } ) -> EventDetailsErrorItem
+newEventDetailsErrorItem'  customize = (EventDetailsErrorItem <<< customize) { "errorMessage": Nothing, "errorName": Nothing, "eventArn": Nothing }
 
 
 
 -- | <p>The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.</p>
 newtype EventFilter = EventFilter 
-  { "eventArns" :: NullOrUndefined (EventArnList')
-  , "eventTypeCodes" :: NullOrUndefined (EventTypeList')
-  , "services" :: NullOrUndefined (ServiceList')
-  , "regions" :: NullOrUndefined (RegionList')
-  , "availabilityZones" :: NullOrUndefined (AvailabilityZones')
-  , "startTimes" :: NullOrUndefined (DateTimeRangeList')
-  , "endTimes" :: NullOrUndefined (DateTimeRangeList')
-  , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList')
-  , "entityArns" :: NullOrUndefined (EntityArnList')
-  , "entityValues" :: NullOrUndefined (EntityValueList')
-  , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList')
-  , "tags" :: NullOrUndefined (TagFilter')
-  , "eventStatusCodes" :: NullOrUndefined (EventStatusCodeList')
+  { "eventArns" :: Maybe (EventArnList')
+  , "eventTypeCodes" :: Maybe (EventTypeList')
+  , "services" :: Maybe (ServiceList')
+  , "regions" :: Maybe (RegionList')
+  , "availabilityZones" :: Maybe (AvailabilityZones')
+  , "startTimes" :: Maybe (DateTimeRangeList')
+  , "endTimes" :: Maybe (DateTimeRangeList')
+  , "lastUpdatedTimes" :: Maybe (DateTimeRangeList')
+  , "entityArns" :: Maybe (EntityArnList')
+  , "entityValues" :: Maybe (EntityValueList')
+  , "eventTypeCategories" :: Maybe (EventTypeCategoryList')
+  , "tags" :: Maybe (TagFilter')
+  , "eventStatusCodes" :: Maybe (EventStatusCodeList')
   }
 derive instance newtypeEventFilter :: Newtype EventFilter _
 derive instance repGenericEventFilter :: Generic EventFilter _
@@ -570,12 +569,12 @@ instance encodeEventFilter :: Encode EventFilter where encode = genericEncode op
 
 -- | Constructs EventFilter from required parameters
 newEventFilter :: EventFilter
-newEventFilter  = EventFilter { "availabilityZones": (NullOrUndefined Nothing), "endTimes": (NullOrUndefined Nothing), "entityArns": (NullOrUndefined Nothing), "entityValues": (NullOrUndefined Nothing), "eventArns": (NullOrUndefined Nothing), "eventStatusCodes": (NullOrUndefined Nothing), "eventTypeCategories": (NullOrUndefined Nothing), "eventTypeCodes": (NullOrUndefined Nothing), "lastUpdatedTimes": (NullOrUndefined Nothing), "regions": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing), "startTimes": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newEventFilter  = EventFilter { "availabilityZones": Nothing, "endTimes": Nothing, "entityArns": Nothing, "entityValues": Nothing, "eventArns": Nothing, "eventStatusCodes": Nothing, "eventTypeCategories": Nothing, "eventTypeCodes": Nothing, "lastUpdatedTimes": Nothing, "regions": Nothing, "services": Nothing, "startTimes": Nothing, "tags": Nothing }
 
 -- | Constructs EventFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventFilter' :: ( { "eventArns" :: NullOrUndefined (EventArnList') , "eventTypeCodes" :: NullOrUndefined (EventTypeList') , "services" :: NullOrUndefined (ServiceList') , "regions" :: NullOrUndefined (RegionList') , "availabilityZones" :: NullOrUndefined (AvailabilityZones') , "startTimes" :: NullOrUndefined (DateTimeRangeList') , "endTimes" :: NullOrUndefined (DateTimeRangeList') , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList') , "entityArns" :: NullOrUndefined (EntityArnList') , "entityValues" :: NullOrUndefined (EntityValueList') , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList') , "tags" :: NullOrUndefined (TagFilter') , "eventStatusCodes" :: NullOrUndefined (EventStatusCodeList') } -> {"eventArns" :: NullOrUndefined (EventArnList') , "eventTypeCodes" :: NullOrUndefined (EventTypeList') , "services" :: NullOrUndefined (ServiceList') , "regions" :: NullOrUndefined (RegionList') , "availabilityZones" :: NullOrUndefined (AvailabilityZones') , "startTimes" :: NullOrUndefined (DateTimeRangeList') , "endTimes" :: NullOrUndefined (DateTimeRangeList') , "lastUpdatedTimes" :: NullOrUndefined (DateTimeRangeList') , "entityArns" :: NullOrUndefined (EntityArnList') , "entityValues" :: NullOrUndefined (EntityValueList') , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList') , "tags" :: NullOrUndefined (TagFilter') , "eventStatusCodes" :: NullOrUndefined (EventStatusCodeList') } ) -> EventFilter
-newEventFilter'  customize = (EventFilter <<< customize) { "availabilityZones": (NullOrUndefined Nothing), "endTimes": (NullOrUndefined Nothing), "entityArns": (NullOrUndefined Nothing), "entityValues": (NullOrUndefined Nothing), "eventArns": (NullOrUndefined Nothing), "eventStatusCodes": (NullOrUndefined Nothing), "eventTypeCategories": (NullOrUndefined Nothing), "eventTypeCodes": (NullOrUndefined Nothing), "lastUpdatedTimes": (NullOrUndefined Nothing), "regions": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing), "startTimes": (NullOrUndefined Nothing), "tags": (NullOrUndefined Nothing) }
+newEventFilter' :: ( { "eventArns" :: Maybe (EventArnList') , "eventTypeCodes" :: Maybe (EventTypeList') , "services" :: Maybe (ServiceList') , "regions" :: Maybe (RegionList') , "availabilityZones" :: Maybe (AvailabilityZones') , "startTimes" :: Maybe (DateTimeRangeList') , "endTimes" :: Maybe (DateTimeRangeList') , "lastUpdatedTimes" :: Maybe (DateTimeRangeList') , "entityArns" :: Maybe (EntityArnList') , "entityValues" :: Maybe (EntityValueList') , "eventTypeCategories" :: Maybe (EventTypeCategoryList') , "tags" :: Maybe (TagFilter') , "eventStatusCodes" :: Maybe (EventStatusCodeList') } -> {"eventArns" :: Maybe (EventArnList') , "eventTypeCodes" :: Maybe (EventTypeList') , "services" :: Maybe (ServiceList') , "regions" :: Maybe (RegionList') , "availabilityZones" :: Maybe (AvailabilityZones') , "startTimes" :: Maybe (DateTimeRangeList') , "endTimes" :: Maybe (DateTimeRangeList') , "lastUpdatedTimes" :: Maybe (DateTimeRangeList') , "entityArns" :: Maybe (EntityArnList') , "entityValues" :: Maybe (EntityValueList') , "eventTypeCategories" :: Maybe (EventTypeCategoryList') , "tags" :: Maybe (TagFilter') , "eventStatusCodes" :: Maybe (EventStatusCodeList') } ) -> EventFilter
+newEventFilter'  customize = (EventFilter <<< customize) { "availabilityZones": Nothing, "endTimes": Nothing, "entityArns": Nothing, "entityValues": Nothing, "eventArns": Nothing, "eventStatusCodes": Nothing, "eventTypeCategories": Nothing, "eventTypeCodes": Nothing, "lastUpdatedTimes": Nothing, "regions": Nothing, "services": Nothing, "startTimes": Nothing, "tags": Nothing }
 
 
 
@@ -590,9 +589,9 @@ instance encodeEventList :: Encode EventList where encode = genericEncode option
 
 -- | <p>Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, <code>issue</code>), the service (for example, <code>EC2</code>), and the event type code (for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
 newtype EventType = EventType 
-  { "service" :: NullOrUndefined (Service')
-  , "code" :: NullOrUndefined (EventTypeCode')
-  , "category" :: NullOrUndefined (EventTypeCategory')
+  { "service" :: Maybe (Service')
+  , "code" :: Maybe (EventTypeCode')
+  , "category" :: Maybe (EventTypeCategory')
   }
 derive instance newtypeEventType :: Newtype EventType _
 derive instance repGenericEventType :: Generic EventType _
@@ -602,12 +601,12 @@ instance encodeEventType :: Encode EventType where encode = genericEncode option
 
 -- | Constructs EventType from required parameters
 newEventType :: EventType
-newEventType  = EventType { "category": (NullOrUndefined Nothing), "code": (NullOrUndefined Nothing), "service": (NullOrUndefined Nothing) }
+newEventType  = EventType { "category": Nothing, "code": Nothing, "service": Nothing }
 
 -- | Constructs EventType's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventType' :: ( { "service" :: NullOrUndefined (Service') , "code" :: NullOrUndefined (EventTypeCode') , "category" :: NullOrUndefined (EventTypeCategory') } -> {"service" :: NullOrUndefined (Service') , "code" :: NullOrUndefined (EventTypeCode') , "category" :: NullOrUndefined (EventTypeCategory') } ) -> EventType
-newEventType'  customize = (EventType <<< customize) { "category": (NullOrUndefined Nothing), "code": (NullOrUndefined Nothing), "service": (NullOrUndefined Nothing) }
+newEventType' :: ( { "service" :: Maybe (Service') , "code" :: Maybe (EventTypeCode') , "category" :: Maybe (EventTypeCategory') } -> {"service" :: Maybe (Service') , "code" :: Maybe (EventTypeCode') , "category" :: Maybe (EventTypeCategory') } ) -> EventType
+newEventType'  customize = (EventType <<< customize) { "category": Nothing, "code": Nothing, "service": Nothing }
 
 
 
@@ -631,9 +630,9 @@ instance encodeEventTypeCodeList :: Encode EventTypeCodeList where encode = gene
 
 -- | <p>The values to use to filter results from the <a>DescribeEventTypes</a> operation.</p>
 newtype EventTypeFilter = EventTypeFilter 
-  { "eventTypeCodes" :: NullOrUndefined (EventTypeCodeList)
-  , "services" :: NullOrUndefined (ServiceList')
-  , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList)
+  { "eventTypeCodes" :: Maybe (EventTypeCodeList)
+  , "services" :: Maybe (ServiceList')
+  , "eventTypeCategories" :: Maybe (EventTypeCategoryList)
   }
 derive instance newtypeEventTypeFilter :: Newtype EventTypeFilter _
 derive instance repGenericEventTypeFilter :: Generic EventTypeFilter _
@@ -643,12 +642,12 @@ instance encodeEventTypeFilter :: Encode EventTypeFilter where encode = genericE
 
 -- | Constructs EventTypeFilter from required parameters
 newEventTypeFilter :: EventTypeFilter
-newEventTypeFilter  = EventTypeFilter { "eventTypeCategories": (NullOrUndefined Nothing), "eventTypeCodes": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing) }
+newEventTypeFilter  = EventTypeFilter { "eventTypeCategories": Nothing, "eventTypeCodes": Nothing, "services": Nothing }
 
 -- | Constructs EventTypeFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventTypeFilter' :: ( { "eventTypeCodes" :: NullOrUndefined (EventTypeCodeList) , "services" :: NullOrUndefined (ServiceList') , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList) } -> {"eventTypeCodes" :: NullOrUndefined (EventTypeCodeList) , "services" :: NullOrUndefined (ServiceList') , "eventTypeCategories" :: NullOrUndefined (EventTypeCategoryList) } ) -> EventTypeFilter
-newEventTypeFilter'  customize = (EventTypeFilter <<< customize) { "eventTypeCategories": (NullOrUndefined Nothing), "eventTypeCodes": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing) }
+newEventTypeFilter' :: ( { "eventTypeCodes" :: Maybe (EventTypeCodeList) , "services" :: Maybe (ServiceList') , "eventTypeCategories" :: Maybe (EventTypeCategoryList) } -> {"eventTypeCodes" :: Maybe (EventTypeCodeList) , "services" :: Maybe (ServiceList') , "eventTypeCategories" :: Maybe (EventTypeCategoryList) } ) -> EventTypeFilter
+newEventTypeFilter'  customize = (EventTypeFilter <<< customize) { "eventTypeCategories": Nothing, "eventTypeCodes": Nothing, "services": Nothing }
 
 
 
@@ -663,7 +662,7 @@ instance encodeEventTypeList :: Encode EventTypeList where encode = genericEncod
 
 -- | <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
 newtype InvalidPaginationToken = InvalidPaginationToken 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeInvalidPaginationToken :: Newtype InvalidPaginationToken _
 derive instance repGenericInvalidPaginationToken :: Generic InvalidPaginationToken _
@@ -673,18 +672,18 @@ instance encodeInvalidPaginationToken :: Encode InvalidPaginationToken where enc
 
 -- | Constructs InvalidPaginationToken from required parameters
 newInvalidPaginationToken :: InvalidPaginationToken
-newInvalidPaginationToken  = InvalidPaginationToken { "message": (NullOrUndefined Nothing) }
+newInvalidPaginationToken  = InvalidPaginationToken { "message": Nothing }
 
 -- | Constructs InvalidPaginationToken's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidPaginationToken' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> InvalidPaginationToken
-newInvalidPaginationToken'  customize = (InvalidPaginationToken <<< customize) { "message": (NullOrUndefined Nothing) }
+newInvalidPaginationToken' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> InvalidPaginationToken
+newInvalidPaginationToken'  customize = (InvalidPaginationToken <<< customize) { "message": Nothing }
 
 
 
 -- | <p>The specified locale is not supported.</p>
 newtype UnsupportedLocale = UnsupportedLocale 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeUnsupportedLocale :: Newtype UnsupportedLocale _
 derive instance repGenericUnsupportedLocale :: Generic UnsupportedLocale _
@@ -694,12 +693,12 @@ instance encodeUnsupportedLocale :: Encode UnsupportedLocale where encode = gene
 
 -- | Constructs UnsupportedLocale from required parameters
 newUnsupportedLocale :: UnsupportedLocale
-newUnsupportedLocale  = UnsupportedLocale { "message": (NullOrUndefined Nothing) }
+newUnsupportedLocale  = UnsupportedLocale { "message": Nothing }
 
 -- | Constructs UnsupportedLocale's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnsupportedLocale' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> UnsupportedLocale
-newUnsupportedLocale'  customize = (UnsupportedLocale <<< customize) { "message": (NullOrUndefined Nothing) }
+newUnsupportedLocale' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> UnsupportedLocale
+newUnsupportedLocale'  customize = (UnsupportedLocale <<< customize) { "message": Nothing }
 
 
 

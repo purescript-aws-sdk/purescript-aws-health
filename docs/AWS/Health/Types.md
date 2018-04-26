@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AffectedEntity
-  = AffectedEntity { entityArn :: NullOrUndefined (EntityArn'), eventArn :: NullOrUndefined (EventArn'), entityValue :: NullOrUndefined (EntityValue'), awsAccountId :: NullOrUndefined (AccountId'), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EntityStatusCode'), tags :: NullOrUndefined (TagSet') }
+  = AffectedEntity { entityArn :: Maybe (EntityArn'), eventArn :: Maybe (EventArn'), entityValue :: Maybe (EntityValue'), awsAccountId :: Maybe (AccountId'), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EntityStatusCode'), tags :: Maybe (TagSet') }
 ```
 
 <p>Information about an entity that is affected by a Health event.</p>
@@ -35,7 +35,7 @@ Constructs AffectedEntity from required parameters
 #### `newAffectedEntity'`
 
 ``` purescript
-newAffectedEntity' :: ({ entityArn :: NullOrUndefined (EntityArn'), eventArn :: NullOrUndefined (EventArn'), entityValue :: NullOrUndefined (EntityValue'), awsAccountId :: NullOrUndefined (AccountId'), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EntityStatusCode'), tags :: NullOrUndefined (TagSet') } -> { entityArn :: NullOrUndefined (EntityArn'), eventArn :: NullOrUndefined (EventArn'), entityValue :: NullOrUndefined (EntityValue'), awsAccountId :: NullOrUndefined (AccountId'), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EntityStatusCode'), tags :: NullOrUndefined (TagSet') }) -> AffectedEntity
+newAffectedEntity' :: ({ entityArn :: Maybe (EntityArn'), eventArn :: Maybe (EventArn'), entityValue :: Maybe (EntityValue'), awsAccountId :: Maybe (AccountId'), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EntityStatusCode'), tags :: Maybe (TagSet') } -> { entityArn :: Maybe (EntityArn'), eventArn :: Maybe (EventArn'), entityValue :: Maybe (EntityValue'), awsAccountId :: Maybe (AccountId'), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EntityStatusCode'), tags :: Maybe (TagSet') }) -> AffectedEntity
 ```
 
 Constructs AffectedEntity's fields from required parameters
@@ -44,7 +44,7 @@ Constructs AffectedEntity's fields from required parameters
 
 ``` purescript
 newtype DateTimeRange
-  = DateTimeRange { from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp) }
+  = DateTimeRange { from :: Maybe (Timestamp), to :: Maybe (Timestamp) }
 ```
 
 <p>A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.</p>
@@ -69,7 +69,7 @@ Constructs DateTimeRange from required parameters
 #### `newDateTimeRange'`
 
 ``` purescript
-newDateTimeRange' :: ({ from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp) } -> { from :: NullOrUndefined (Timestamp), to :: NullOrUndefined (Timestamp) }) -> DateTimeRange
+newDateTimeRange' :: ({ from :: Maybe (Timestamp), to :: Maybe (Timestamp) } -> { from :: Maybe (Timestamp), to :: Maybe (Timestamp) }) -> DateTimeRange
 ```
 
 Constructs DateTimeRange's fields from required parameters
@@ -78,7 +78,7 @@ Constructs DateTimeRange's fields from required parameters
 
 ``` purescript
 newtype DescribeAffectedEntitiesRequest
-  = DescribeAffectedEntitiesRequest { filter :: EntityFilter, locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') }
+  = DescribeAffectedEntitiesRequest { filter :: EntityFilter, locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') }
 ```
 
 ##### Instances
@@ -101,7 +101,7 @@ Constructs DescribeAffectedEntitiesRequest from required parameters
 #### `newDescribeAffectedEntitiesRequest'`
 
 ``` purescript
-newDescribeAffectedEntitiesRequest' :: EntityFilter -> ({ filter :: EntityFilter, locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') } -> { filter :: EntityFilter, locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') }) -> DescribeAffectedEntitiesRequest
+newDescribeAffectedEntitiesRequest' :: EntityFilter -> ({ filter :: EntityFilter, locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') } -> { filter :: EntityFilter, locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') }) -> DescribeAffectedEntitiesRequest
 ```
 
 Constructs DescribeAffectedEntitiesRequest's fields from required parameters
@@ -110,7 +110,7 @@ Constructs DescribeAffectedEntitiesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeAffectedEntitiesResponse
-  = DescribeAffectedEntitiesResponse { entities :: NullOrUndefined (EntityList), nextToken :: NullOrUndefined (NextToken') }
+  = DescribeAffectedEntitiesResponse { entities :: Maybe (EntityList), nextToken :: Maybe (NextToken') }
 ```
 
 ##### Instances
@@ -133,7 +133,7 @@ Constructs DescribeAffectedEntitiesResponse from required parameters
 #### `newDescribeAffectedEntitiesResponse'`
 
 ``` purescript
-newDescribeAffectedEntitiesResponse' :: ({ entities :: NullOrUndefined (EntityList), nextToken :: NullOrUndefined (NextToken') } -> { entities :: NullOrUndefined (EntityList), nextToken :: NullOrUndefined (NextToken') }) -> DescribeAffectedEntitiesResponse
+newDescribeAffectedEntitiesResponse' :: ({ entities :: Maybe (EntityList), nextToken :: Maybe (NextToken') } -> { entities :: Maybe (EntityList), nextToken :: Maybe (NextToken') }) -> DescribeAffectedEntitiesResponse
 ```
 
 Constructs DescribeAffectedEntitiesResponse's fields from required parameters
@@ -142,7 +142,7 @@ Constructs DescribeAffectedEntitiesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeEntityAggregatesRequest
-  = DescribeEntityAggregatesRequest { eventArns :: NullOrUndefined (EventArnsList) }
+  = DescribeEntityAggregatesRequest { eventArns :: Maybe (EventArnsList) }
 ```
 
 ##### Instances
@@ -165,7 +165,7 @@ Constructs DescribeEntityAggregatesRequest from required parameters
 #### `newDescribeEntityAggregatesRequest'`
 
 ``` purescript
-newDescribeEntityAggregatesRequest' :: ({ eventArns :: NullOrUndefined (EventArnsList) } -> { eventArns :: NullOrUndefined (EventArnsList) }) -> DescribeEntityAggregatesRequest
+newDescribeEntityAggregatesRequest' :: ({ eventArns :: Maybe (EventArnsList) } -> { eventArns :: Maybe (EventArnsList) }) -> DescribeEntityAggregatesRequest
 ```
 
 Constructs DescribeEntityAggregatesRequest's fields from required parameters
@@ -174,7 +174,7 @@ Constructs DescribeEntityAggregatesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEntityAggregatesResponse
-  = DescribeEntityAggregatesResponse { entityAggregates :: NullOrUndefined (EntityAggregateList) }
+  = DescribeEntityAggregatesResponse { entityAggregates :: Maybe (EntityAggregateList) }
 ```
 
 ##### Instances
@@ -197,7 +197,7 @@ Constructs DescribeEntityAggregatesResponse from required parameters
 #### `newDescribeEntityAggregatesResponse'`
 
 ``` purescript
-newDescribeEntityAggregatesResponse' :: ({ entityAggregates :: NullOrUndefined (EntityAggregateList) } -> { entityAggregates :: NullOrUndefined (EntityAggregateList) }) -> DescribeEntityAggregatesResponse
+newDescribeEntityAggregatesResponse' :: ({ entityAggregates :: Maybe (EntityAggregateList) } -> { entityAggregates :: Maybe (EntityAggregateList) }) -> DescribeEntityAggregatesResponse
 ```
 
 Constructs DescribeEntityAggregatesResponse's fields from required parameters
@@ -206,7 +206,7 @@ Constructs DescribeEntityAggregatesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeEventAggregatesRequest
-  = DescribeEventAggregatesRequest { filter :: NullOrUndefined (EventFilter), aggregateField :: EventAggregateField', maxResults :: NullOrUndefined (MaxResults'), nextToken :: NullOrUndefined (NextToken') }
+  = DescribeEventAggregatesRequest { filter :: Maybe (EventFilter), aggregateField :: EventAggregateField', maxResults :: Maybe (MaxResults'), nextToken :: Maybe (NextToken') }
 ```
 
 ##### Instances
@@ -229,7 +229,7 @@ Constructs DescribeEventAggregatesRequest from required parameters
 #### `newDescribeEventAggregatesRequest'`
 
 ``` purescript
-newDescribeEventAggregatesRequest' :: EventAggregateField' -> ({ filter :: NullOrUndefined (EventFilter), aggregateField :: EventAggregateField', maxResults :: NullOrUndefined (MaxResults'), nextToken :: NullOrUndefined (NextToken') } -> { filter :: NullOrUndefined (EventFilter), aggregateField :: EventAggregateField', maxResults :: NullOrUndefined (MaxResults'), nextToken :: NullOrUndefined (NextToken') }) -> DescribeEventAggregatesRequest
+newDescribeEventAggregatesRequest' :: EventAggregateField' -> ({ filter :: Maybe (EventFilter), aggregateField :: EventAggregateField', maxResults :: Maybe (MaxResults'), nextToken :: Maybe (NextToken') } -> { filter :: Maybe (EventFilter), aggregateField :: EventAggregateField', maxResults :: Maybe (MaxResults'), nextToken :: Maybe (NextToken') }) -> DescribeEventAggregatesRequest
 ```
 
 Constructs DescribeEventAggregatesRequest's fields from required parameters
@@ -238,7 +238,7 @@ Constructs DescribeEventAggregatesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEventAggregatesResponse
-  = DescribeEventAggregatesResponse { eventAggregates :: NullOrUndefined (EventAggregateList), nextToken :: NullOrUndefined (NextToken') }
+  = DescribeEventAggregatesResponse { eventAggregates :: Maybe (EventAggregateList), nextToken :: Maybe (NextToken') }
 ```
 
 ##### Instances
@@ -261,7 +261,7 @@ Constructs DescribeEventAggregatesResponse from required parameters
 #### `newDescribeEventAggregatesResponse'`
 
 ``` purescript
-newDescribeEventAggregatesResponse' :: ({ eventAggregates :: NullOrUndefined (EventAggregateList), nextToken :: NullOrUndefined (NextToken') } -> { eventAggregates :: NullOrUndefined (EventAggregateList), nextToken :: NullOrUndefined (NextToken') }) -> DescribeEventAggregatesResponse
+newDescribeEventAggregatesResponse' :: ({ eventAggregates :: Maybe (EventAggregateList), nextToken :: Maybe (NextToken') } -> { eventAggregates :: Maybe (EventAggregateList), nextToken :: Maybe (NextToken') }) -> DescribeEventAggregatesResponse
 ```
 
 Constructs DescribeEventAggregatesResponse's fields from required parameters
@@ -286,7 +286,7 @@ Encode DescribeEventDetailsFailedSet
 
 ``` purescript
 newtype DescribeEventDetailsRequest
-  = DescribeEventDetailsRequest { eventArns :: EventArnList', locale :: NullOrUndefined (Locale') }
+  = DescribeEventDetailsRequest { eventArns :: EventArnList', locale :: Maybe (Locale') }
 ```
 
 ##### Instances
@@ -309,7 +309,7 @@ Constructs DescribeEventDetailsRequest from required parameters
 #### `newDescribeEventDetailsRequest'`
 
 ``` purescript
-newDescribeEventDetailsRequest' :: EventArnList' -> ({ eventArns :: EventArnList', locale :: NullOrUndefined (Locale') } -> { eventArns :: EventArnList', locale :: NullOrUndefined (Locale') }) -> DescribeEventDetailsRequest
+newDescribeEventDetailsRequest' :: EventArnList' -> ({ eventArns :: EventArnList', locale :: Maybe (Locale') } -> { eventArns :: EventArnList', locale :: Maybe (Locale') }) -> DescribeEventDetailsRequest
 ```
 
 Constructs DescribeEventDetailsRequest's fields from required parameters
@@ -318,7 +318,7 @@ Constructs DescribeEventDetailsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEventDetailsResponse
-  = DescribeEventDetailsResponse { successfulSet :: NullOrUndefined (DescribeEventDetailsSuccessfulSet), failedSet :: NullOrUndefined (DescribeEventDetailsFailedSet) }
+  = DescribeEventDetailsResponse { successfulSet :: Maybe (DescribeEventDetailsSuccessfulSet), failedSet :: Maybe (DescribeEventDetailsFailedSet) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs DescribeEventDetailsResponse from required parameters
 #### `newDescribeEventDetailsResponse'`
 
 ``` purescript
-newDescribeEventDetailsResponse' :: ({ successfulSet :: NullOrUndefined (DescribeEventDetailsSuccessfulSet), failedSet :: NullOrUndefined (DescribeEventDetailsFailedSet) } -> { successfulSet :: NullOrUndefined (DescribeEventDetailsSuccessfulSet), failedSet :: NullOrUndefined (DescribeEventDetailsFailedSet) }) -> DescribeEventDetailsResponse
+newDescribeEventDetailsResponse' :: ({ successfulSet :: Maybe (DescribeEventDetailsSuccessfulSet), failedSet :: Maybe (DescribeEventDetailsFailedSet) } -> { successfulSet :: Maybe (DescribeEventDetailsSuccessfulSet), failedSet :: Maybe (DescribeEventDetailsFailedSet) }) -> DescribeEventDetailsResponse
 ```
 
 Constructs DescribeEventDetailsResponse's fields from required parameters
@@ -366,7 +366,7 @@ Encode DescribeEventDetailsSuccessfulSet
 
 ``` purescript
 newtype DescribeEventTypesRequest
-  = DescribeEventTypesRequest { filter :: NullOrUndefined (EventTypeFilter), locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') }
+  = DescribeEventTypesRequest { filter :: Maybe (EventTypeFilter), locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') }
 ```
 
 ##### Instances
@@ -389,7 +389,7 @@ Constructs DescribeEventTypesRequest from required parameters
 #### `newDescribeEventTypesRequest'`
 
 ``` purescript
-newDescribeEventTypesRequest' :: ({ filter :: NullOrUndefined (EventTypeFilter), locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') } -> { filter :: NullOrUndefined (EventTypeFilter), locale :: NullOrUndefined (Locale'), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults') }) -> DescribeEventTypesRequest
+newDescribeEventTypesRequest' :: ({ filter :: Maybe (EventTypeFilter), locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') } -> { filter :: Maybe (EventTypeFilter), locale :: Maybe (Locale'), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults') }) -> DescribeEventTypesRequest
 ```
 
 Constructs DescribeEventTypesRequest's fields from required parameters
@@ -398,7 +398,7 @@ Constructs DescribeEventTypesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEventTypesResponse
-  = DescribeEventTypesResponse { eventTypes :: NullOrUndefined (EventTypeList), nextToken :: NullOrUndefined (NextToken') }
+  = DescribeEventTypesResponse { eventTypes :: Maybe (EventTypeList), nextToken :: Maybe (NextToken') }
 ```
 
 ##### Instances
@@ -421,7 +421,7 @@ Constructs DescribeEventTypesResponse from required parameters
 #### `newDescribeEventTypesResponse'`
 
 ``` purescript
-newDescribeEventTypesResponse' :: ({ eventTypes :: NullOrUndefined (EventTypeList), nextToken :: NullOrUndefined (NextToken') } -> { eventTypes :: NullOrUndefined (EventTypeList), nextToken :: NullOrUndefined (NextToken') }) -> DescribeEventTypesResponse
+newDescribeEventTypesResponse' :: ({ eventTypes :: Maybe (EventTypeList), nextToken :: Maybe (NextToken') } -> { eventTypes :: Maybe (EventTypeList), nextToken :: Maybe (NextToken') }) -> DescribeEventTypesResponse
 ```
 
 Constructs DescribeEventTypesResponse's fields from required parameters
@@ -430,7 +430,7 @@ Constructs DescribeEventTypesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeEventsRequest
-  = DescribeEventsRequest { filter :: NullOrUndefined (EventFilter), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults'), locale :: NullOrUndefined (Locale') }
+  = DescribeEventsRequest { filter :: Maybe (EventFilter), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults'), locale :: Maybe (Locale') }
 ```
 
 ##### Instances
@@ -453,7 +453,7 @@ Constructs DescribeEventsRequest from required parameters
 #### `newDescribeEventsRequest'`
 
 ``` purescript
-newDescribeEventsRequest' :: ({ filter :: NullOrUndefined (EventFilter), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults'), locale :: NullOrUndefined (Locale') } -> { filter :: NullOrUndefined (EventFilter), nextToken :: NullOrUndefined (NextToken'), maxResults :: NullOrUndefined (MaxResults'), locale :: NullOrUndefined (Locale') }) -> DescribeEventsRequest
+newDescribeEventsRequest' :: ({ filter :: Maybe (EventFilter), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults'), locale :: Maybe (Locale') } -> { filter :: Maybe (EventFilter), nextToken :: Maybe (NextToken'), maxResults :: Maybe (MaxResults'), locale :: Maybe (Locale') }) -> DescribeEventsRequest
 ```
 
 Constructs DescribeEventsRequest's fields from required parameters
@@ -462,7 +462,7 @@ Constructs DescribeEventsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEventsResponse
-  = DescribeEventsResponse { events :: NullOrUndefined (EventList), nextToken :: NullOrUndefined (NextToken') }
+  = DescribeEventsResponse { events :: Maybe (EventList), nextToken :: Maybe (NextToken') }
 ```
 
 ##### Instances
@@ -485,7 +485,7 @@ Constructs DescribeEventsResponse from required parameters
 #### `newDescribeEventsResponse'`
 
 ``` purescript
-newDescribeEventsResponse' :: ({ events :: NullOrUndefined (EventList), nextToken :: NullOrUndefined (NextToken') } -> { events :: NullOrUndefined (EventList), nextToken :: NullOrUndefined (NextToken') }) -> DescribeEventsResponse
+newDescribeEventsResponse' :: ({ events :: Maybe (EventList), nextToken :: Maybe (NextToken') } -> { events :: Maybe (EventList), nextToken :: Maybe (NextToken') }) -> DescribeEventsResponse
 ```
 
 Constructs DescribeEventsResponse's fields from required parameters
@@ -494,7 +494,7 @@ Constructs DescribeEventsResponse's fields from required parameters
 
 ``` purescript
 newtype EntityAggregate
-  = EntityAggregate { eventArn :: NullOrUndefined (EventArn'), count :: NullOrUndefined (Count') }
+  = EntityAggregate { eventArn :: Maybe (EventArn'), count :: Maybe (Count') }
 ```
 
 <p>The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.</p>
@@ -519,7 +519,7 @@ Constructs EntityAggregate from required parameters
 #### `newEntityAggregate'`
 
 ``` purescript
-newEntityAggregate' :: ({ eventArn :: NullOrUndefined (EventArn'), count :: NullOrUndefined (Count') } -> { eventArn :: NullOrUndefined (EventArn'), count :: NullOrUndefined (Count') }) -> EntityAggregate
+newEntityAggregate' :: ({ eventArn :: Maybe (EventArn'), count :: Maybe (Count') } -> { eventArn :: Maybe (EventArn'), count :: Maybe (Count') }) -> EntityAggregate
 ```
 
 Constructs EntityAggregate's fields from required parameters
@@ -544,7 +544,7 @@ Encode EntityAggregateList
 
 ``` purescript
 newtype EntityFilter
-  = EntityFilter { eventArns :: EventArnList', entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), tags :: NullOrUndefined (TagFilter'), statusCodes :: NullOrUndefined (EntityStatusCodeList') }
+  = EntityFilter { eventArns :: EventArnList', entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), tags :: Maybe (TagFilter'), statusCodes :: Maybe (EntityStatusCodeList') }
 ```
 
 <p>The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.</p>
@@ -569,7 +569,7 @@ Constructs EntityFilter from required parameters
 #### `newEntityFilter'`
 
 ``` purescript
-newEntityFilter' :: EventArnList' -> ({ eventArns :: EventArnList', entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), tags :: NullOrUndefined (TagFilter'), statusCodes :: NullOrUndefined (EntityStatusCodeList') } -> { eventArns :: EventArnList', entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), tags :: NullOrUndefined (TagFilter'), statusCodes :: NullOrUndefined (EntityStatusCodeList') }) -> EntityFilter
+newEntityFilter' :: EventArnList' -> ({ eventArns :: EventArnList', entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), tags :: Maybe (TagFilter'), statusCodes :: Maybe (EntityStatusCodeList') } -> { eventArns :: EventArnList', entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), tags :: Maybe (TagFilter'), statusCodes :: Maybe (EntityStatusCodeList') }) -> EntityFilter
 ```
 
 Constructs EntityFilter's fields from required parameters
@@ -594,7 +594,7 @@ Encode EntityList
 
 ``` purescript
 newtype Event
-  = Event { arn :: NullOrUndefined (EventArn'), service :: NullOrUndefined (Service'), eventTypeCode :: NullOrUndefined (EventTypeCode'), eventTypeCategory :: NullOrUndefined (EventTypeCategory'), region :: NullOrUndefined (Region'), availabilityZone :: NullOrUndefined (AvailabilityZone'), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EventStatusCode') }
+  = Event { arn :: Maybe (EventArn'), service :: Maybe (Service'), eventTypeCode :: Maybe (EventTypeCode'), eventTypeCategory :: Maybe (EventTypeCategory'), region :: Maybe (Region'), availabilityZone :: Maybe (AvailabilityZone'), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EventStatusCode') }
 ```
 
 <p>Summary information about an event, returned by the <a>DescribeEvents</a> operation. The <a>DescribeEventDetails</a> operation also returns this information, as well as the <a>EventDescription</a> and additional event metadata.</p>
@@ -619,7 +619,7 @@ Constructs Event from required parameters
 #### `newEvent'`
 
 ``` purescript
-newEvent' :: ({ arn :: NullOrUndefined (EventArn'), service :: NullOrUndefined (Service'), eventTypeCode :: NullOrUndefined (EventTypeCode'), eventTypeCategory :: NullOrUndefined (EventTypeCategory'), region :: NullOrUndefined (Region'), availabilityZone :: NullOrUndefined (AvailabilityZone'), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EventStatusCode') } -> { arn :: NullOrUndefined (EventArn'), service :: NullOrUndefined (Service'), eventTypeCode :: NullOrUndefined (EventTypeCode'), eventTypeCategory :: NullOrUndefined (EventTypeCategory'), region :: NullOrUndefined (Region'), availabilityZone :: NullOrUndefined (AvailabilityZone'), startTime :: NullOrUndefined (Timestamp), endTime :: NullOrUndefined (Timestamp), lastUpdatedTime :: NullOrUndefined (Timestamp), statusCode :: NullOrUndefined (EventStatusCode') }) -> Event
+newEvent' :: ({ arn :: Maybe (EventArn'), service :: Maybe (Service'), eventTypeCode :: Maybe (EventTypeCode'), eventTypeCategory :: Maybe (EventTypeCategory'), region :: Maybe (Region'), availabilityZone :: Maybe (AvailabilityZone'), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EventStatusCode') } -> { arn :: Maybe (EventArn'), service :: Maybe (Service'), eventTypeCode :: Maybe (EventTypeCode'), eventTypeCategory :: Maybe (EventTypeCategory'), region :: Maybe (Region'), availabilityZone :: Maybe (AvailabilityZone'), startTime :: Maybe (Timestamp), endTime :: Maybe (Timestamp), lastUpdatedTime :: Maybe (Timestamp), statusCode :: Maybe (EventStatusCode') }) -> Event
 ```
 
 Constructs Event's fields from required parameters
@@ -628,7 +628,7 @@ Constructs Event's fields from required parameters
 
 ``` purescript
 newtype EventAggregate
-  = EventAggregate { aggregateValue :: NullOrUndefined (AggregateValue'), count :: NullOrUndefined (Count') }
+  = EventAggregate { aggregateValue :: Maybe (AggregateValue'), count :: Maybe (Count') }
 ```
 
 <p>The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.</p>
@@ -653,7 +653,7 @@ Constructs EventAggregate from required parameters
 #### `newEventAggregate'`
 
 ``` purescript
-newEventAggregate' :: ({ aggregateValue :: NullOrUndefined (AggregateValue'), count :: NullOrUndefined (Count') } -> { aggregateValue :: NullOrUndefined (AggregateValue'), count :: NullOrUndefined (Count') }) -> EventAggregate
+newEventAggregate' :: ({ aggregateValue :: Maybe (AggregateValue'), count :: Maybe (Count') } -> { aggregateValue :: Maybe (AggregateValue'), count :: Maybe (Count') }) -> EventAggregate
 ```
 
 Constructs EventAggregate's fields from required parameters
@@ -694,7 +694,7 @@ Encode EventArnsList
 
 ``` purescript
 newtype EventDescription
-  = EventDescription { latestDescription :: NullOrUndefined (EventDescription') }
+  = EventDescription { latestDescription :: Maybe (EventDescription') }
 ```
 
 <p>The detailed description of the event. Included in the information returned by the <a>DescribeEventDetails</a> operation.</p>
@@ -719,7 +719,7 @@ Constructs EventDescription from required parameters
 #### `newEventDescription'`
 
 ``` purescript
-newEventDescription' :: ({ latestDescription :: NullOrUndefined (EventDescription') } -> { latestDescription :: NullOrUndefined (EventDescription') }) -> EventDescription
+newEventDescription' :: ({ latestDescription :: Maybe (EventDescription') } -> { latestDescription :: Maybe (EventDescription') }) -> EventDescription
 ```
 
 Constructs EventDescription's fields from required parameters
@@ -728,7 +728,7 @@ Constructs EventDescription's fields from required parameters
 
 ``` purescript
 newtype EventDetails
-  = EventDetails { event :: NullOrUndefined (Event), eventDescription :: NullOrUndefined (EventDescription), eventMetadata :: NullOrUndefined (EventMetadata') }
+  = EventDetails { event :: Maybe (Event), eventDescription :: Maybe (EventDescription), eventMetadata :: Maybe (EventMetadata') }
 ```
 
 <p>Detailed information about an event. A combination of an <a>Event</a> object, an <a>EventDescription</a> object, and additional metadata about the event. Returned by the <a>DescribeEventDetails</a> operation.</p>
@@ -753,7 +753,7 @@ Constructs EventDetails from required parameters
 #### `newEventDetails'`
 
 ``` purescript
-newEventDetails' :: ({ event :: NullOrUndefined (Event), eventDescription :: NullOrUndefined (EventDescription), eventMetadata :: NullOrUndefined (EventMetadata') } -> { event :: NullOrUndefined (Event), eventDescription :: NullOrUndefined (EventDescription), eventMetadata :: NullOrUndefined (EventMetadata') }) -> EventDetails
+newEventDetails' :: ({ event :: Maybe (Event), eventDescription :: Maybe (EventDescription), eventMetadata :: Maybe (EventMetadata') } -> { event :: Maybe (Event), eventDescription :: Maybe (EventDescription), eventMetadata :: Maybe (EventMetadata') }) -> EventDetails
 ```
 
 Constructs EventDetails's fields from required parameters
@@ -762,7 +762,7 @@ Constructs EventDetails's fields from required parameters
 
 ``` purescript
 newtype EventDetailsErrorItem
-  = EventDetailsErrorItem { eventArn :: NullOrUndefined (EventArn'), errorName :: NullOrUndefined (String), errorMessage :: NullOrUndefined (String) }
+  = EventDetailsErrorItem { eventArn :: Maybe (EventArn'), errorName :: Maybe (String), errorMessage :: Maybe (String) }
 ```
 
 <p>Error information returned when a <a>DescribeEventDetails</a> operation cannot find a specified event.</p>
@@ -787,7 +787,7 @@ Constructs EventDetailsErrorItem from required parameters
 #### `newEventDetailsErrorItem'`
 
 ``` purescript
-newEventDetailsErrorItem' :: ({ eventArn :: NullOrUndefined (EventArn'), errorName :: NullOrUndefined (String), errorMessage :: NullOrUndefined (String) } -> { eventArn :: NullOrUndefined (EventArn'), errorName :: NullOrUndefined (String), errorMessage :: NullOrUndefined (String) }) -> EventDetailsErrorItem
+newEventDetailsErrorItem' :: ({ eventArn :: Maybe (EventArn'), errorName :: Maybe (String), errorMessage :: Maybe (String) } -> { eventArn :: Maybe (EventArn'), errorName :: Maybe (String), errorMessage :: Maybe (String) }) -> EventDetailsErrorItem
 ```
 
 Constructs EventDetailsErrorItem's fields from required parameters
@@ -796,7 +796,7 @@ Constructs EventDetailsErrorItem's fields from required parameters
 
 ``` purescript
 newtype EventFilter
-  = EventFilter { eventArns :: NullOrUndefined (EventArnList'), eventTypeCodes :: NullOrUndefined (EventTypeList'), services :: NullOrUndefined (ServiceList'), regions :: NullOrUndefined (RegionList'), availabilityZones :: NullOrUndefined (AvailabilityZones'), startTimes :: NullOrUndefined (DateTimeRangeList'), endTimes :: NullOrUndefined (DateTimeRangeList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList'), tags :: NullOrUndefined (TagFilter'), eventStatusCodes :: NullOrUndefined (EventStatusCodeList') }
+  = EventFilter { eventArns :: Maybe (EventArnList'), eventTypeCodes :: Maybe (EventTypeList'), services :: Maybe (ServiceList'), regions :: Maybe (RegionList'), availabilityZones :: Maybe (AvailabilityZones'), startTimes :: Maybe (DateTimeRangeList'), endTimes :: Maybe (DateTimeRangeList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), eventTypeCategories :: Maybe (EventTypeCategoryList'), tags :: Maybe (TagFilter'), eventStatusCodes :: Maybe (EventStatusCodeList') }
 ```
 
 <p>The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.</p>
@@ -821,7 +821,7 @@ Constructs EventFilter from required parameters
 #### `newEventFilter'`
 
 ``` purescript
-newEventFilter' :: ({ eventArns :: NullOrUndefined (EventArnList'), eventTypeCodes :: NullOrUndefined (EventTypeList'), services :: NullOrUndefined (ServiceList'), regions :: NullOrUndefined (RegionList'), availabilityZones :: NullOrUndefined (AvailabilityZones'), startTimes :: NullOrUndefined (DateTimeRangeList'), endTimes :: NullOrUndefined (DateTimeRangeList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList'), tags :: NullOrUndefined (TagFilter'), eventStatusCodes :: NullOrUndefined (EventStatusCodeList') } -> { eventArns :: NullOrUndefined (EventArnList'), eventTypeCodes :: NullOrUndefined (EventTypeList'), services :: NullOrUndefined (ServiceList'), regions :: NullOrUndefined (RegionList'), availabilityZones :: NullOrUndefined (AvailabilityZones'), startTimes :: NullOrUndefined (DateTimeRangeList'), endTimes :: NullOrUndefined (DateTimeRangeList'), lastUpdatedTimes :: NullOrUndefined (DateTimeRangeList'), entityArns :: NullOrUndefined (EntityArnList'), entityValues :: NullOrUndefined (EntityValueList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList'), tags :: NullOrUndefined (TagFilter'), eventStatusCodes :: NullOrUndefined (EventStatusCodeList') }) -> EventFilter
+newEventFilter' :: ({ eventArns :: Maybe (EventArnList'), eventTypeCodes :: Maybe (EventTypeList'), services :: Maybe (ServiceList'), regions :: Maybe (RegionList'), availabilityZones :: Maybe (AvailabilityZones'), startTimes :: Maybe (DateTimeRangeList'), endTimes :: Maybe (DateTimeRangeList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), eventTypeCategories :: Maybe (EventTypeCategoryList'), tags :: Maybe (TagFilter'), eventStatusCodes :: Maybe (EventStatusCodeList') } -> { eventArns :: Maybe (EventArnList'), eventTypeCodes :: Maybe (EventTypeList'), services :: Maybe (ServiceList'), regions :: Maybe (RegionList'), availabilityZones :: Maybe (AvailabilityZones'), startTimes :: Maybe (DateTimeRangeList'), endTimes :: Maybe (DateTimeRangeList'), lastUpdatedTimes :: Maybe (DateTimeRangeList'), entityArns :: Maybe (EntityArnList'), entityValues :: Maybe (EntityValueList'), eventTypeCategories :: Maybe (EventTypeCategoryList'), tags :: Maybe (TagFilter'), eventStatusCodes :: Maybe (EventStatusCodeList') }) -> EventFilter
 ```
 
 Constructs EventFilter's fields from required parameters
@@ -846,7 +846,7 @@ Encode EventList
 
 ``` purescript
 newtype EventType
-  = EventType { service :: NullOrUndefined (Service'), code :: NullOrUndefined (EventTypeCode'), category :: NullOrUndefined (EventTypeCategory') }
+  = EventType { service :: Maybe (Service'), code :: Maybe (EventTypeCode'), category :: Maybe (EventTypeCategory') }
 ```
 
 <p>Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, <code>issue</code>), the service (for example, <code>EC2</code>), and the event type code (for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
@@ -871,7 +871,7 @@ Constructs EventType from required parameters
 #### `newEventType'`
 
 ``` purescript
-newEventType' :: ({ service :: NullOrUndefined (Service'), code :: NullOrUndefined (EventTypeCode'), category :: NullOrUndefined (EventTypeCategory') } -> { service :: NullOrUndefined (Service'), code :: NullOrUndefined (EventTypeCode'), category :: NullOrUndefined (EventTypeCategory') }) -> EventType
+newEventType' :: ({ service :: Maybe (Service'), code :: Maybe (EventTypeCode'), category :: Maybe (EventTypeCategory') } -> { service :: Maybe (Service'), code :: Maybe (EventTypeCode'), category :: Maybe (EventTypeCategory') }) -> EventType
 ```
 
 Constructs EventType's fields from required parameters
@@ -912,7 +912,7 @@ Encode EventTypeCodeList
 
 ``` purescript
 newtype EventTypeFilter
-  = EventTypeFilter { eventTypeCodes :: NullOrUndefined (EventTypeCodeList), services :: NullOrUndefined (ServiceList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList) }
+  = EventTypeFilter { eventTypeCodes :: Maybe (EventTypeCodeList), services :: Maybe (ServiceList'), eventTypeCategories :: Maybe (EventTypeCategoryList) }
 ```
 
 <p>The values to use to filter results from the <a>DescribeEventTypes</a> operation.</p>
@@ -937,7 +937,7 @@ Constructs EventTypeFilter from required parameters
 #### `newEventTypeFilter'`
 
 ``` purescript
-newEventTypeFilter' :: ({ eventTypeCodes :: NullOrUndefined (EventTypeCodeList), services :: NullOrUndefined (ServiceList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList) } -> { eventTypeCodes :: NullOrUndefined (EventTypeCodeList), services :: NullOrUndefined (ServiceList'), eventTypeCategories :: NullOrUndefined (EventTypeCategoryList) }) -> EventTypeFilter
+newEventTypeFilter' :: ({ eventTypeCodes :: Maybe (EventTypeCodeList), services :: Maybe (ServiceList'), eventTypeCategories :: Maybe (EventTypeCategoryList) } -> { eventTypeCodes :: Maybe (EventTypeCodeList), services :: Maybe (ServiceList'), eventTypeCategories :: Maybe (EventTypeCategoryList) }) -> EventTypeFilter
 ```
 
 Constructs EventTypeFilter's fields from required parameters
@@ -962,7 +962,7 @@ Encode EventTypeList
 
 ``` purescript
 newtype InvalidPaginationToken
-  = InvalidPaginationToken { message :: NullOrUndefined (String) }
+  = InvalidPaginationToken { message :: Maybe (String) }
 ```
 
 <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
@@ -987,7 +987,7 @@ Constructs InvalidPaginationToken from required parameters
 #### `newInvalidPaginationToken'`
 
 ``` purescript
-newInvalidPaginationToken' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> InvalidPaginationToken
+newInvalidPaginationToken' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> InvalidPaginationToken
 ```
 
 Constructs InvalidPaginationToken's fields from required parameters
@@ -996,7 +996,7 @@ Constructs InvalidPaginationToken's fields from required parameters
 
 ``` purescript
 newtype UnsupportedLocale
-  = UnsupportedLocale { message :: NullOrUndefined (String) }
+  = UnsupportedLocale { message :: Maybe (String) }
 ```
 
 <p>The specified locale is not supported.</p>
@@ -1021,7 +1021,7 @@ Constructs UnsupportedLocale from required parameters
 #### `newUnsupportedLocale'`
 
 ``` purescript
-newUnsupportedLocale' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> UnsupportedLocale
+newUnsupportedLocale' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> UnsupportedLocale
 ```
 
 Constructs UnsupportedLocale's fields from required parameters
